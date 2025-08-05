@@ -1,4 +1,3 @@
-mylist=[1,2,3]
-print(mylist)
-mytuple=tuple(mylist)
-print(mytuple)
+queue = ["Doc1", "Doc2", "Doc3"]
+while queue:
+    print(queue.pop(0))
