@@ -1,4 +1,4 @@
-# Word Flipper Mission!
+# 4 Word Flipper Mission!
 sentence = "The sky is blue"
 flipped = ' '.join([word[::-1]for word in sentence.split()])
 print(flipped)

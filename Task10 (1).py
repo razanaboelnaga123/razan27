@@ -1,3 +1,4 @@
+# Treasure Dictionary Challenge
 # step 1 : Start the dictionary
 treasure = {
     "clues": ["beach", "cave", "waterfall"],
@@ -27,6 +28,6 @@ treasure["crew"].remove("Navigator")
 for location, info in treasure["locations"].items():
     if "gold coin" in ["location"]:
         print(f"Treasure! In location_name")
-# Count and list all items
+# 4Count and list all items
 for location, info in treasure["locations"].items():
     print(f"{location} : {' , '.join(info['items'])}")
