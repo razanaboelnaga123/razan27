@@ -31,3 +31,4 @@ for location, info in treasure["locations"].items():
 # 4Count and list all items
 for location, info in treasure["locations"].items():
     print(f"{location} : {' , '.join(info['items'])}")
+
