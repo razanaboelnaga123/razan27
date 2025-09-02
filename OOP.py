@@ -4,7 +4,6 @@ class MagicalContact:
         self.__email = email
         self.__phone_number = phone_number
 
-  
     def get_name(self):
         return self.__name
 
@@ -13,20 +12,19 @@ class MagicalContact:
 
     def get_phone_number(self):
         return self.__phone_number
-
-   
+    
     def set_email(self, email):
         self.__email = email
 
     def set_phone_number(self, phone_number):
         self.__phone_number = phone_number
 
-   
+    
     def describe(self):
         return f"Name: {self._name}, Email: {self.email}, Phone: {self._phone_number}"
 
 
-# WizardOrWitch class
+# WizardOrWitch Subclass
 class WizardOrWitch(MagicalContact):
     def _init_(self, name, email, phone_number, wand, house):
         super()._init_(name, email, phone_number)
@@ -48,9 +46,15 @@ class WizardOrWitch(MagicalContact):
         base_description = super().describe()
         wand_details = self.get_wand()
         return f"{base_description}, Wand: {wand_details}, House: {self.__house}"
+    
+    contact = MagicalContact("Dobby", "dobby_2806@free_elfmail.elf", "+44 01234567890")
+print(contact.describe())
+
+wizard = WizardOrWitch("Harry Potter", "harry@hogwarts.com", "+44 987654321", "Phoenix feather, 11 inches", "Gryffindor")
+print(wizard.describe())
 
 
-# MagicalCreature 
+# MagicalCreature Subclass
 class MagicalCreature(MagicalContact):
     def _init_(self, name, email, phone_number, species, is_tame):
         super()._init_(name, email, phone_number)
@@ -78,7 +82,7 @@ class MagicalContactBook:
         if isinstance(contact, MagicalContact):
             self.__contacts.append(contact)
         else:
-            raise TypeError("Only MagicalContact or its subclasses can be added.")
+            return TypeError("Only MagicalContact can be added")
 
     def list_contacts(self):
         for contact in self.__contacts:
@@ -88,20 +92,17 @@ class MagicalContactBook:
         for contact in self.__contacts:
             if contact.get_name() == name:
                 return contact.describe()
-        return "Contact Not Found"
+        return "Contact not found."
 
-if __name__ == "__main__":
+if __name__ == "_main_":
     wand = {"core": "Phoenix feather", "wood": "Holly", "length": "11 inches"}
-harry = WizardOrWitch("Harry Potter", "harry@hogwarts.com", "+44 987654321", wand, "Gryffindor")
-razan = MagicalCreature("Razan AboElNaga", "razan@magicalcreatures.com", "+44 123456789", "Hippogriff", True)
-
+    harry = WizardOrWitch("Harry Potter", "harry@hogwarts.com", "+44 987654321", wand, "Gryffindor")
     
 book = MagicalContactBook()
 book.add_contact(harry)
-book.add_contact(razan)
 
 print("All Contacts:")
 book.list_contacts()
 
-print("\nSearch for Razan:")
-print(book.find_contact("Razan AboElNaga"))
+print("\nSearch for Harry:")
+print(book.find_contact("Harry Potter"))
