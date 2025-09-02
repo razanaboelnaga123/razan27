@@ -3,7 +3,7 @@ class Student:
     def __init__(self, name, trait):
         self.name = name
         self.trait = trait
-        self.school =""
+        self.school = ""
 
     def get_school(self):
         if self.trait =="brave":
